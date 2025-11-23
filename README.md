@@ -76,6 +76,30 @@ Este projeto explora um padrão de design mais avançado para otimizar a estrutu
 
     SQL (Sintaxe compatível com MySQL)
 
+Desafio de Projeto Power BI, Módulo 3:
+Foram utilizadas as seguintes queries para a realização do desafio:
+
+SELECT e.Ssn, e.Fname, e.Lname, d.Dname
+FROM employee e
+JOIN departament d ON e.Dno = d.Dnumber;
+
+SELECT e.Ssn, CONCAT(e.Fname, ' ', e.Lname) AS Colaborador,
+       CONCAT(g.Fname, ' ', g.Lname) AS Gerente
+FROM employee e
+LEFT JOIN employee g ON e.Super_ssn = g.Ssn;
+
+SELECT CONCAT(Fname, ' ', Lname) AS NomeCompleto
+FROM employee;
+
+SELECT CONCAT(d.Dname, '-', l.Dlocation) AS Dept_Local
+FROM departament d
+JOIN dept_locations l ON d.Dnumber = l.Dnumber;
+
+SELECT Super_ssn AS Gerente, COUNT(*) AS Num_Colaboradores
+FROM employee
+WHERE Super_ssn IS NOT NULL
+GROUP BY Super_ssn;
+
 👨‍💻 Autor
 
 João Bianchi
